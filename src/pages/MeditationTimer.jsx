@@ -87,8 +87,11 @@ export default function MeditationTimer() {
               {breathing && running ? (
                 <>
                   <div
-                    className="w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#D4AF37] mb-3 transition-transform duration-[4000ms]"
-                    style={{ transform: phase==='Inhale'?'scale(1.4)':phase==='Exhale'?'scale(0.7)':'scale(1.1)' }}
+                    className="w-24 h-24 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#D4AF37] mb-3 transition-transform"
+                    style={{
+                      transform: phase === 'Inhale' ? 'scale(1.4)' : phase === 'Exhale' ? 'scale(0.7)' : 'scale(1.1)',
+                      transitionDuration: '4000ms',
+                    }}
                   />
                   <p className="text-[#7B1C1C] font-serif text-lg" data-testid="breathing-phase">{phase}</p>
                 </>

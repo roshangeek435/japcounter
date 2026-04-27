@@ -62,7 +62,7 @@
     "start": "craco start",
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "craco build",
-    "postbuild": "react-snap",
+    "postbuild": "node scripts/run-react-snap.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "sync-public-seo": "node scripts/generate-sitemap.js",
     "test": "craco test"
@@ -71,6 +71,7 @@
     "source": "build",
     "include": [
       "/",
+      "/404.html",
       "/mantra-library",
       "/meditation-timer",
       "/about",
@@ -245,7 +246,8 @@
       "--disable-setuid-sandbox"
     ],
     "skipThirdPartyRequests": true,
-    "inlineCss": false
+    "inlineCss": false,
+    "crawl": false
   },
   "browserslist": {
     "production": [
