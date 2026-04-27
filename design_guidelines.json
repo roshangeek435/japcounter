@@ -1,0 +1,102 @@
+{
+  "theme": "light",
+  "archetype": "1_organic_earthy",
+  "design_philosophy": "Digital Temple - a premium, warm, spiritual tool for mantra meditation blending sacred tradition with seamless digital interactions. Avoid all 'tech-heavy' aesthetics like glassmorphism or neon.",
+  "colors": {
+    "background": "#FFF8EE",
+    "foreground": "#1A1A1A",
+    "primary": "#FF6B00",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#D4AF37",
+    "secondary_foreground": "#1A1A1A",
+    "accent": "#7B1C1C",
+    "accent_foreground": "#FFFFFF",
+    "muted": "#FAFAFA",
+    "muted_foreground": "#7B1C1C",
+    "border": "rgba(212, 175, 55, 0.3)",
+    "ring": "rgba(255, 107, 0, 0.4)",
+    "surface": "#FFFFFF"
+  },
+  "typography": {
+    "headings": "Cormorant Garamond",
+    "body": "Poppins",
+    "script_canvas": "Merienda",
+    "multilingual": {
+      "devanagari": "Hind Siliguri",
+      "gujarati": "Noto Sans Gujarati"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none text-[#7B1C1C]",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight text-[#1A1A1A]",
+      "h3": "text-xl sm:text-2xl text-[#1A1A1A]",
+      "body": "text-base leading-relaxed text-[#1A1A1A]",
+      "small_label": "text-sm uppercase tracking-[0.2em] text-[#D4AF37]"
+    },
+    "pairing_rules": "Use Cormorant Garamond for all primary headings to invoke a timeless, spiritual feel. Use Poppins for utilitarian UI elements (buttons, nav, numbers). Use Merienda for the live writing canvas to simulate handwriting."
+  },
+  "spacing_and_layout": {
+    "philosophy": "Generous spacing. Allow sacred elements to breathe. Use Tailwind p-8, p-12, p-16.",
+    "homepage_grid": "Split layout on desktop: Left column for the Japa Tap Counter (The Focus) and Controls, Right column for the Live Writing Canvas (The Manifestation). Mobile-first: Counter fixed/sticky at bottom or prominent top, canvas below.",
+    "container_radius": "rounded-2xl to rounded-3xl for soft, approachable containers."
+  },
+  "surfaces_and_shadows": {
+    "canvas": "Use the parchment_texture as background image. Apply a soft inner shadow (shadow-inner) to simulate paper depth.",
+    "cards": "Solid cream/off-white (bg-[#FAFAFA]) with a delicate 1px border (#D4AF37/20) and diffuse ambient shadow (shadow-lg with #FF6B00/5 tint). No harsh black shadows.",
+    "header": "Solid #FFF8EE background with a subtle #D4AF37/20 bottom border. No glassmorphism to preserve the organic feel."
+  },
+  "animations_and_interactions": {
+    "tap_button": "Pulsating gold glow on idle. On tap: slight scale down (scale-95), ripple effect spreading outward, and circular progress ring smoothly advancing.",
+    "writing_canvas": "Mantras appear with a fade-in-up or blur-to-sharp effect to mimic ink slowly sinking into paper. Use Framer Motion stagger children for word-by-word reveal.",
+    "hover_states": "Soft lift (-translate-y-1) and increased shadow for interactive cards. Nav links get a subtle golden underline expansion.",
+    "breathing_timer": "Expanding and contracting soft circle (scale 1 to 1.5) synced with a 4-7-8 breathing tempo."
+  },
+  "components_instructions": {
+    "japa_tap_button": "Custom HTML/SVG or Framer Motion element. Use the lotus_mandala_button as the central graphic inside the button. It must be massive and prominent.",
+    "progress_ring": "SVG `<circle>` wrapped around the Tap button with `stroke-dasharray` and `stroke-dashoffset` calculated dynamically based on (count % 108). Color: Gradient from Saffron to Gold.",
+    "mantra_library": "Use Shadcn Cards in a responsive grid (Bento-style). Filter options via Shadcn Tabs.",
+    "timer_display": "Minimalist digital display (Cormorant Garamond numbers) with standard play/pause Shadcn buttons styled softly."
+  },
+  "media_and_assets": {
+    "images": [
+      {
+        "category": "hero_ambient",
+        "description": "Premium spiritual meditation concept, brass singing bowl with rudraksha mala",
+        "url": "https://static.prod-images.emergentagent.com/jobs/4d0f06b0-4691-4c60-a984-2a571db36678/images/e72f395a2bcfca7a57a4a933decc72d411b564d33b69fb83bf6615a3d5e6c9a4.png"
+      },
+      {
+        "category": "background_pattern",
+        "description": "Subtle seamless background pattern of faint mandalas. Apply to main body at 5% opacity.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/4d0f06b0-4691-4c60-a984-2a571db36678/images/590a01d63e60438014c9a9f511d47eaaa838687518a629c658ea9da43ec79908.png"
+      },
+      {
+        "category": "tap_button_icon",
+        "description": "Geometric lotus mandala icon for the main counter button. Place centrally.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/4d0f06b0-4691-4c60-a984-2a571db36678/images/30ec750bc47a526f7e6ad94216a435266066a101644165748720f71390465c68.png"
+      },
+      {
+        "category": "canvas_texture",
+        "description": "Blank aged parchment paper texture for writing canvas container background.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/4d0f06b0-4691-4c60-a984-2a571db36678/images/59b5a0921480416c04e3d86c91a90d7c12d64daa7f33cc4dc73ff32facd0fe09.png"
+      },
+      {
+        "category": "generic_spiritual_beads",
+        "description": "Rudraksha and stone prayer beads. Use for dedicated counter pages or blog.",
+        "url": "https://images.pexels.com/photos/15923899/pexels-photo-15923899.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      },
+      {
+        "category": "generic_spiritual_market",
+        "description": "Vibrant assortment of traditional prayer beads.",
+        "url": "https://images.pexels.com/photos/32442615/pexels-photo-32442615.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      }
+    ],
+    "icons": "Use lucide-react. Prefer rounded, organic-looking icons over sharp technical ones."
+  },
+  "instructions_to_main_agent": [
+    "Inject Google Fonts imports for 'Cormorant Garamond', 'Poppins', 'Merienda', 'Hind Siliguri', and 'Noto Sans Gujarati' into the index.html or global css.",
+    "Strictly configure tailwind.config.js with the custom color palette provided here. Discard default shades that clash with the organic feel.",
+    "For the Live Writing Canvas: set background-image to 'canvas_texture' URL. Create a state array of tapped mantras. As user clicks the main Tap button, append to array. Render elements using framer-motion `<motion.span>` with blur-to-sharp transitions (e.g. initial={{ opacity: 0, filter: 'blur(4px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }}).",
+    "For the Progress Ring: Build an SVG `<circle>` tracking (count % 108). Smoothly animate `stroke-dashoffset` as it updates.",
+    "Every interactive element and key informational text (buttons, canvases, timers) MUST include a kebab-case `data-testid` attribute.",
+    "Apply `background_pattern` image to the global `body` or wrapper element with `opacity-5` or `opacity-10` to simulate a subtle spiritual texture across the app."
+  ]
+}
