@@ -7,6 +7,7 @@
  *   node scripts/generate-sitemap.js https://your-domain.com
  *
  * Run automatically via npm prebuild (set REACT_APP_SITE_URL in .env for production).
+ * Optional: REACT_APP_ALLOW_CRAWL=false to write Disallow: / in public/robots.txt (staging).
  */
 const fs = require('fs');
 const path = require('path');
@@ -109,6 +110,24 @@ function loadRoutes() {
   return routes;
 }
 
+/** When false, robots.txt disallows all crawlers (no Sitemap line). Default true if unset. */
+function isAllowCrawl() {
+  const raw = (
+    process.env.REACT_APP_ALLOW_CRAWL ??
+    process.env.ALLOW_CRAWL ??
+    'true'
+  )
+    .toString()
+    .trim()
+    .toLowerCase();
+  if (['false', '0', 'no', 'off'].includes(raw)) return false;
+  if (['true', '1', 'yes', 'on'].includes(raw)) return true;
+  console.warn(
+    `[generate-sitemap] Unrecognized REACT_APP_ALLOW_CRAWL="${raw}"; defaulting to allow crawl.`,
+  );
+  return true;
+}
+
 const origin = (
   process.argv[2] ||
   process.env.REACT_APP_SITE_URL ||
@@ -142,17 +161,27 @@ ${lines.join('\n')}
 const pubDir = path.join(ROOT, 'public');
 fs.writeFileSync(path.join(pubDir, 'sitemap.xml'), xml);
 
-const robots = `# REACT_APP_SITE_URL=${origin}
+const allowCrawl = isAllowCrawl();
+const robots = allowCrawl
+  ? `# REACT_APP_SITE_URL=${origin}
+# REACT_APP_ALLOW_CRAWL=true
 User-agent: *
 Allow: /
 
 Sitemap: ${origin}/sitemap.xml
+`
+  : `# REACT_APP_SITE_URL=${origin}
+# REACT_APP_ALLOW_CRAWL=false
+User-agent: *
+Disallow: /
 `;
 fs.writeFileSync(path.join(pubDir, 'robots.txt'), robots);
 
 console.log(
   '[generate-sitemap] Wrote',
   routes.length,
-  'URLs with dynamic lastmod (git or mtime) and robots.txt for',
+  'URLs with dynamic lastmod (git or mtime) and robots.txt',
+  allowCrawl ? '(crawl allowed)' : '(crawl disallowed)',
+  'for',
   origin,
 );

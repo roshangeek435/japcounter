@@ -1,5 +1,6 @@
-# REACT_APP_SITE_URL=https://example.com
+# REACT_APP_SITE_URL=http://localhost:3000
+# REACT_APP_ALLOW_CRAWL=true
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: http://localhost:3000/sitemap.xml
