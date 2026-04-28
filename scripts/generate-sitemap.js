@@ -163,16 +163,12 @@ fs.writeFileSync(path.join(pubDir, 'sitemap.xml'), xml);
 
 const allowCrawl = isAllowCrawl();
 const robots = allowCrawl
-  ? `# REACT_APP_SITE_URL=${origin}
-# REACT_APP_ALLOW_CRAWL=true
-User-agent: *
+  ? `User-agent: *
 Allow: /
 
 Sitemap: ${origin}/sitemap.xml
 `
-  : `# REACT_APP_SITE_URL=${origin}
-# REACT_APP_ALLOW_CRAWL=false
-User-agent: *
+  : `User-agent: *
 Disallow: /
 `;
 fs.writeFileSync(path.join(pubDir, 'robots.txt'), robots);
