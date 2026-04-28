@@ -9,9 +9,15 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 
-if (process.env.VERCEL || process.env.SKIP_REACT_SNAP === 'true' || process.env.SKIP_REACT_SNAP === '1') {
-  const reason = process.env.VERCEL ? 'VERCEL' : 'SKIP_REACT_SNAP';
-  console.log(`[postbuild] Skipping react-snap (${reason}): no Chromium deps on this host. Deploy is a client-rendered SPA unless you prerender elsewhere.`);
+const isCI =
+  process.env.VERCEL ||
+  process.env.CF_PAGES ||
+  process.env.CI === 'true' ||
+  process.env.SKIP_REACT_SNAP === 'true' ||
+  process.env.SKIP_REACT_SNAP === '1';
+
+if (isCI) {
+  console.log(`[postbuild] Skipping react-snap (CI/Cloudflare): no Chromium deps available.`);
   process.exit(0);
 }
 
