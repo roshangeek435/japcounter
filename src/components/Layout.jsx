@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Logo } from './Logo';
 import { Button } from './ui/button';
 import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger
+    DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger
 } from './ui/dropdown-menu';
 import { siteUrl, siteHostname } from '../lib/siteConfig';
 import { GlobalJsonLd } from './GlobalJsonLd';
@@ -22,7 +22,7 @@ const FEATURED_COUNTERS = [
   { to: '/counter/ram-ram',                label: 'Ram Naam Counter' },
   { to: '/counter/radhe-radhe',            label: 'Radhe Radhe Counter' },
   { to: '/counter/om-namah-shivaya',       label: 'Om Namah Shivaya Counter' },
-  { to: '/counter/om-han-hanumate-namah',  label: 'Hanuman Japa Counter' },
+  { to: '/counter/om-han-hanumate-namah',  label: 'Hanuman Jap Counter' },
   { to: '/counter/om',                     label: 'Om Counter' },
   { to: '/counter/gayatri-mantra',         label: 'Gayatri Mantra Counter' },
   { to: '/counter/waheguru',               label: 'Waheguru Counter' },
@@ -103,7 +103,7 @@ export const Footer = () => (
       <div className="md:col-span-2">
         <div className="flex items-center gap-2 mb-3">
           <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-[#FF6B00] to-[#D4AF37] text-white font-serif text-xl">ॐ</span>
-          <span className="font-serif text-2xl">Japa Counter Online</span>
+          <span className="font-serif text-2xl">Jap Counter Online</span>
         </div>
         <p className="text-[#FFF8EE]/80 max-w-md leading-relaxed">
           Supporting your spiritual journey through technology. A free, beautiful digital mala for mantra meditation — built with reverence.

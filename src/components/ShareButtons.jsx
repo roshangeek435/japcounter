@@ -1,4 +1,3 @@
-import React from 'react';
 import { MessageCircle, Facebook, Twitter, Send, Instagram, Download } from 'lucide-react';
 import { toast } from 'sonner';
 import { siteHostname, siteUrl } from '../lib/siteConfig';
@@ -6,7 +5,7 @@ import { siteHostname, siteUrl } from '../lib/siteConfig';
 export const ShareButtons = ({ mantraName, malas, onDownload, onCopyMessage }) => {
   const url = typeof window !== 'undefined' ? window.location.href : siteUrl('/');
   const label = siteHostname();
-  const message = `🕉️ I just completed ${malas} mala${malas !== 1 ? 's' : ''} of ${mantraName} japa today 🙏 Try the free Japa Counter at ${label}`;
+  const message = `🕉️ I just completed ${malas} mala${malas !== 1 ? 's' : ''} of ${mantraName} japa today 🙏 Try the free Jap Counter at ${label}`;
   const enc = encodeURIComponent;
 
   const links = [

@@ -22,7 +22,7 @@
 - [[_COMMUNITY_Layout|Layout]]
 - [[_COMMUNITY_App Router|App Router]]
 - [[_COMMUNITY_Mantra Library|Mantra Library]]
-- [[_COMMUNITY_Japa Counter|Japa Counter]]
+- [[_COMMUNITY_Jap Counter|Jap Counter]]
 - [[_COMMUNITY_SEO Head|SEO Head]]
 - [[_COMMUNITY_Command UI|Command UI]]
 - [[_COMMUNITY_Dialog UI|Dialog UI]]
@@ -87,7 +87,7 @@ Nodes (5): getMantraById(), getMantrasByCategory(), buildFAQ(), MantraCounterPag
 
 ### Community 6 - "App Docs"
 Cohesion: 0.22
-Nodes (9): Japa Counter Digital Mala Application, Japa Counter Web Application Entry, Create React App Getting Started Guide, SEO Robots Configuration, Decorative Mandala Background Texture, Mala Bead Tap Indicator Visual, Social Media Share Preview Image, Sacred Parchment Background Visual (+1 more)
+Nodes (9): Jap Counter Digital Mala Application, Jap Counter Web Application Entry, Create React App Getting Started Guide, SEO Robots Configuration, Decorative Mandala Background Texture, Mala Bead Tap Indicator Visual, Social Media Share Preview Image, Sacred Parchment Background Visual (+1 more)
 
 ### Community 7 - "Menubar UI"
 Cohesion: 0.43
@@ -109,7 +109,7 @@ Nodes (3): App(), BlogPostRoute(), LegacyRedirect()
 Cohesion: 0.6
 Nodes (3): MantraLibrary(), ScriptFontClass(), Section()
 
-### Community 12 - "Japa Counter"
+### Community 12 - "Jap Counter"
 Cohesion: 0.83
 Nodes (2): fmtTime(), JapaCounter()
 
@@ -160,7 +160,7 @@ Nodes (2): Graphify Knowledge Graph Configuration, Graphify Knowledge Graph Tool
 ## Knowledge Gaps
 - **7 isolated node(s):** `Graphify Knowledge Graph Configuration`, `Create React App Getting Started Guide`, `SEO Robots Configuration`, `Decorative Mandala Background Texture`, `Mala Bead Tap Indicator Visual` (+2 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Japa Counter`** (4 nodes): `fmtTime()`, `JapaCounter()`, `JapaCounter.jsx`, `JapaCounter.jsx`
+- **Thin community `Jap Counter`** (4 nodes): `fmtTime()`, `JapaCounter()`, `JapaCounter.jsx`, `JapaCounter.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `SEO Head`** (4 nodes): `SeoHead()`, `toJsonLd()`, `SeoHead.jsx`, `SeoHead.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.

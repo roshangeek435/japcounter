@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getSiteOrigin, siteUrl } from '../lib/siteConfig';
 import ogImageAsset from '../assets/images/og-image.png';
@@ -40,7 +39,7 @@ export const SeoHead = ({
       <meta name="robots" content={robots} />
       {url ? <link rel="canonical" href={url} /> : null}
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Japa Counter Online" />
+      <meta property="og:site_name" content="Jap Counter Online" />
       <meta property="og:locale" content="en_IN" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

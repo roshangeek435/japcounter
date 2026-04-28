@@ -1,4 +1,3 @@
-import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getSiteOrigin } from '../lib/siteConfig';
 
@@ -13,7 +12,7 @@ export function GlobalJsonLd() {
       {
         '@type': 'WebSite',
         '@id': `${origin}/#website`,
-        name: 'Japa Counter Online',
+        name: 'Jap Counter Online',
         url: `${origin}/`,
         description:
           'Free digital mala for mantra meditation with live writing canvas, downloadable image, and 150+ preloaded mantras.',
@@ -23,7 +22,7 @@ export function GlobalJsonLd() {
       {
         '@type': 'Organization',
         '@id': `${origin}/#organization`,
-        name: 'Japa Counter Online',
+        name: 'Jap Counter Online',
         url: origin,
       },
     ],

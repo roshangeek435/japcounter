@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { ChevronRight, BookOpen, Sparkles, HelpCircle } from 'lucide-react';
 import { JapaCounter } from '../components/JapaCounter';
@@ -38,7 +37,7 @@ export default function MantraCounterPage() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    'name': `${mantra.name} Japa Counter`,
+    'name': `${mantra.name} Jap Counter`,
     'description': `Free online digital mala for chanting ${mantra.name} (${mantra.transliteration}). ${mantra.benefits}`,
     'applicationCategory': 'LifestyleApplication',
     'operatingSystem': 'Web',
@@ -58,8 +57,8 @@ export default function MantraCounterPage() {
   return (
     <>
       <SeoHead
-        title={`${mantra.name} Japa Counter Online — Free Digital Mala`}
-        description={`Chant ${mantra.name} (${mantra.script.slice(0,40)}) online with our free digital japa counter. Track 108 malas, write your japa on a sacred parchment, download as image, and share your devotion.`}
+        title={`${mantra.name} Jap Counter Online — Free Digital Mala`}
+        description={`Chant ${mantra.name} (${mantra.script.slice(0,40)}) online with our free digital Jap Counter. Track 108 malas, write your japa on a sacred parchment, download as image, and share your devotion.`}
         canonical={url}
         schema={[schema, faqSchema]}
       />
@@ -75,7 +74,7 @@ export default function MantraCounterPage() {
         </nav>
         <div className="text-center max-w-4xl mx-auto">
           <p className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] mb-3">{mantra.tradition} · {mantra.deity}</p>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#7B1C1C] mb-4">{mantra.name} Japa Counter</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#7B1C1C] mb-4">{mantra.name} Jap Counter</h1>
           <p className={`${fontClass} text-2xl sm:text-3xl text-[#FF6B00] my-6 leading-relaxed`}>{mantra.script}</p>
           <p className="text-sm italic text-[#7B1C1C]/70 mb-3">{mantra.transliteration}</p>
           <div className="flex flex-wrap justify-center gap-2 mt-4">

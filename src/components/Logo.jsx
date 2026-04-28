@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Logo = ({ size = 'md' }) => {
@@ -12,7 +11,7 @@ export const Logo = ({ size = 'md' }) => {
         ॐ
       </span>
       <span className={`font-serif font-semibold text-[#7B1C1C] ${sizes[size]} leading-tight`}>
-        Japa Counter
+        Jap Counter
         <span className="block text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] font-sans font-medium">
           Online · Digital Mala
         </span>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { SeoHead } from '../components/SeoHead';
 import { siteUrl, getSiteOrigin, contactEmail } from '../lib/siteConfig';
@@ -7,7 +6,7 @@ import { Heart, Sparkles, Lock, BookOpen } from 'lucide-react';
 
 export const About = () => (
   <>
-    <SeoHead title="About — Japa Counter Online" description="The story behind a free digital mala built by a college student for the global spiritual community." canonical={siteUrl('/about')} />
+    <SeoHead title="About — Jap Counter Online" description="The story behind a free digital mala built by a college student for the global spiritual community." canonical={siteUrl('/about')} />
     <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-testid="about-page">
       <p className="text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-2">Our Story</p>
       <h1 className="font-serif text-4xl sm:text-5xl text-[#7B1C1C] mb-6">Built with devotion. Shared for free.</h1>
@@ -48,7 +47,7 @@ const Section = ({ icon: I, title, children }) => (
 
 export const Contact = () => (
   <>
-    <SeoHead title="Contact — Japa Counter Online" description="Reach out with feedback, suggestions, or mantra requests." canonical={siteUrl('/contact')} />
+    <SeoHead title="Contact — Jap Counter Online" description="Reach out with feedback, suggestions, or mantra requests." canonical={siteUrl('/contact')} />
     <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-testid="contact-page">
       <h1 className="font-serif text-4xl sm:text-5xl text-[#7B1C1C] mb-2">Get in Touch</h1>
       <p className="text-[#1A1A1A]/75 mb-8">Have a mantra to add, a suggestion, or a kind word? We'd love to hear from you.</p>
@@ -96,7 +95,7 @@ const POSTS = [
 
 export const Blog = () => (
   <>
-    <SeoHead title="Blog — Japa Counter Online" description="Articles on mantra meditation, japa traditions, and the spiritual significance of 108." canonical={siteUrl('/blog')} />
+    <SeoHead title="Blog — Jap Counter Online" description="Articles on mantra meditation, japa traditions, and the spiritual significance of 108." canonical={siteUrl('/blog')} />
     <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-testid="blog-page">
       <h1 className="font-serif text-4xl sm:text-5xl text-[#7B1C1C] mb-3">Journal</h1>
       <p className="text-[#1A1A1A]/75 mb-10">Reflections on the path of mantra meditation.</p>
@@ -119,7 +118,7 @@ export const BlogPost = ({ slug }) => {
     return (
       <>
         <SeoHead
-          title="Post not found — Japa Counter Online"
+          title="Post not found — Jap Counter Online"
           description="This journal entry could not be found."
           canonical={siteUrl('/blog')}
           robots="noindex, follow"
@@ -143,7 +142,7 @@ export const BlogPost = ({ slug }) => {
   };
   return (
     <>
-      <SeoHead title={`${post.title} — Japa Counter Online`} description={post.excerpt} canonical={postUrl} schema={articleSchema} />
+      <SeoHead title={`${post.title} — Jap Counter Online`} description={post.excerpt} canonical={postUrl} schema={articleSchema} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14" data-testid={`blog-post-${slug}`}>
         <Link to="/blog" className="text-sm text-[#D4AF37] hover:text-[#FF6B00]">← Back to Journal</Link>
         <h1 className="font-serif text-4xl sm:text-5xl text-[#7B1C1C] mt-4 mb-6">{post.title}</h1>
@@ -162,12 +161,12 @@ const Legal = ({ title, body, testid }) => (
 
 export const Privacy = () => (
   <>
-    <SeoHead title="Privacy Policy — Japa Counter Online" description="Privacy-first: no personal data is collected or transmitted." canonical={siteUrl('/privacy')} />
+    <SeoHead title="Privacy Policy — Jap Counter Online" description="Privacy-first: no personal data is collected or transmitted." canonical={siteUrl('/privacy')} />
     <Legal
       title="Privacy Policy"
       testid="privacy-page"
       body={<>
-        <p>Japa Counter Online is built with privacy as a core principle. We do not collect, store, or transmit any personal data to any server.</p>
+        <p>Jap Counter Online is built with privacy as a core principle. We do not collect, store, or transmit any personal data to any server.</p>
         <p>All session data — your count, malas completed, writing canvas text, audio preferences — is stored exclusively in your browser's localStorage. This data never leaves your device.</p>
         <p>We do not use third‑party tracking, analytics, or advertising services. We do not place tracking cookies. The only browser storage we use is the localStorage required to remember your japa progress.</p>
         <p>You can clear all stored data at any time using the Reset button or by clearing your browser's site data.</p>
@@ -178,12 +177,12 @@ export const Privacy = () => (
 
 export const Terms = () => (
   <>
-    <SeoHead title="Terms of Service — Japa Counter Online" description="Terms governing use of the free Japa Counter Online tool." canonical={siteUrl('/terms')} />
+    <SeoHead title="Terms of Service — Jap Counter Online" description="Terms governing use of the free Jap Counter Online tool." canonical={siteUrl('/terms')} />
     <Legal
       title="Terms of Service"
       testid="terms-page"
       body={<>
-        <p>By using Japa Counter Online you agree to these terms. The site is provided free of charge for personal spiritual practice and is offered "as is" without warranty.</p>
+        <p>By using Jap Counter Online you agree to these terms. The site is provided free of charge for personal spiritual practice and is offered "as is" without warranty.</p>
         <p>The content (mantra texts, meanings, vidhi) is for informational purposes only and is not a substitute for guidance from a qualified spiritual teacher.</p>
         <p>You may use this tool for personal practice, share screenshots and downloads freely, and link to this site. Please do not republish the site's source code as your own.</p>
       </>}
@@ -193,7 +192,7 @@ export const Terms = () => (
 
 export const Disclaimer = () => (
   <>
-    <SeoHead title="Disclaimer — Japa Counter Online" description="Spiritual guidance disclaimer." canonical={siteUrl('/disclaimer')} />
+    <SeoHead title="Disclaimer — Jap Counter Online" description="Spiritual guidance disclaimer." canonical={siteUrl('/disclaimer')} />
     <Legal
       title="Disclaimer"
       testid="disclaimer-page"

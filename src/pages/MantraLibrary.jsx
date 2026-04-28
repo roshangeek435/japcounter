@@ -1,11 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Copy, ChevronRight } from 'lucide-react';
 import { ALL_MANTRAS, CATEGORIES } from '../lib/mantras';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import {
-  Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger
 } from '../components/ui/dialog';
 import { SeoHead } from '../components/SeoHead';
 import { siteUrl } from '../lib/siteConfig';
@@ -47,7 +47,7 @@ export default function MantraLibrary() {
     <>
       <SeoHead
         title="Mantra Library — 150+ Sacred Mantras with Meanings & Benefits"
-        description="Explore 150+ Hindu, Sikh, Jain, Buddhist mantras with original script, transliteration, meaning, pronunciation, vidhi, and benefits. Free japa counter for every mantra."
+        description="Explore 150+ Hindu, Sikh, Jain, Buddhist mantras with original script, transliteration, meaning, pronunciation, vidhi, and benefits. Free Jap Counter for every mantra."
         canonical={siteUrl('/mantra-library')}
         schema={schema}
       />

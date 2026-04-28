@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { JapaCounter } from '../components/JapaCounter';
 import { SeoHead } from '../components/SeoHead';
@@ -9,7 +8,7 @@ export default function Home() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Japa Counter Online",
+    "name": "Jap Counter Online",
     "url": siteUrl('/'),
     "applicationCategory": "LifestyleApplication",
     "operatingSystem": "Web",
@@ -20,7 +19,7 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        title="Japa Counter Online — Free Digital Mala for Mantra Meditation"
+        title="Jap Counter Online — Free Digital Mala for Mantra Meditation"
         description="Free, beautiful digital mala. Tap to chant, watch your mantra fill a sacred parchment, download as image and share. 20+ preloaded mantras (Om, Ram, Hare Krishna, Om Namah Shivaya, Hanuman, Gayatri & more)."
         canonical={siteUrl('/')}
         schema={schema}
@@ -69,7 +68,7 @@ export default function Home() {
 
       {/* About blurb */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-        <h2 className="font-serif text-3xl text-[#7B1C1C] mb-4">Why Japa Counter Online?</h2>
+        <h2 className="font-serif text-3xl text-[#7B1C1C] mb-4">Why Jap Counter Online?</h2>
         <p className="text-[#1A1A1A]/80 leading-relaxed">
           A traditional mala has 108 beads — a sacred number woven into Vedic cosmology. Whether you chant Om, Ram, Radhe, or any mantra of your heart, this free tool gently keeps count so your mind can stay with the sound. Your data lives only on your device. No accounts. No tracking. Just devotion.
         </p>
