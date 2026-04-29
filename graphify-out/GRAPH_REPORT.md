@@ -38,16 +38,16 @@
 10. `Q()` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `isDevanagari()` --calls--> `test()`  [INFERRED]
-  src/components/WritingCanvas.jsx → scripts/test-jsdom.js
-- `isGujarati()` --calls--> `test()`  [INFERRED]
-  src/components/WritingCanvas.jsx → scripts/test-jsdom.js
-- `isGurmukhi()` --calls--> `test()`  [INFERRED]
-  src/components/WritingCanvas.jsx → scripts/test-jsdom.js
-- `isTamil()` --calls--> `test()`  [INFERRED]
-  src/components/WritingCanvas.jsx → scripts/test-jsdom.js
-- `isMalayalam()` --calls--> `test()`  [INFERRED]
-  src/components/WritingCanvas.jsx → scripts/test-jsdom.js
+- `test()` --calls--> `isDevanagari()`  [INFERRED]
+  scripts/test-jsdom.js → src/components/WritingCanvas.jsx
+- `test()` --calls--> `isGujarati()`  [INFERRED]
+  scripts/test-jsdom.js → src/components/WritingCanvas.jsx
+- `test()` --calls--> `isGurmukhi()`  [INFERRED]
+  scripts/test-jsdom.js → src/components/WritingCanvas.jsx
+- `test()` --calls--> `isTamil()`  [INFERRED]
+  scripts/test-jsdom.js → src/components/WritingCanvas.jsx
+- `test()` --calls--> `isMalayalam()`  [INFERRED]
+  scripts/test-jsdom.js → src/components/WritingCanvas.jsx
 
 ## Communities
 
