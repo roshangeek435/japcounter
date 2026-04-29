@@ -1,25 +1,9 @@
-const puppeteer = require("puppeteer-core");
+const puppeteer = require("puppeteer");
 const path = require("path");
 const fs = require("fs");
 
 const ROOT = path.join(__dirname, "..");
 const BUILD_DIR = path.join(ROOT, "build");
-
-async function findChrome() {
-  if (process.env.PUPPETEER_EXECUTABLE_PATH) return process.env.PUPPETEER_EXECUTABLE_PATH;
-  const commonPaths = [
-    "/usr/bin/google-chrome",
-    "/usr/bin/google-chrome-stable",
-    "/usr/bin/chromium-browser",
-    "/usr/bin/chromium",
-    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-  ];
-  for (const p of commonPaths) {
-    if (fs.existsSync(p)) return p;
-  }
-  return null;
-}
 
 async function prerender() {
   console.log("[prerender] Starting serverless prerenderer...");
@@ -27,21 +11,13 @@ async function prerender() {
   const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, "package.json"), "utf8"));
   const routes = pkg.reactSnap?.include || ["/"];
   
-  const executablePath = await findChrome();
-  if (!executablePath) {
-    console.error("[prerender] Error: Chrome/Chromium not found.");
-    process.exit(1);
-  }
-  console.log(`[prerender] Using browser at: ${executablePath}`);
+  console.log(`[prerender] Launching browser...`);
 
   const browser = await puppeteer.launch({
-    executablePath,
     args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
   });
 
   let failedCount = 0;
-  
-  // We use a single page and reuse it for speed and memory efficiency
   const page = await browser.newPage();
   
   // Intercept requests to serve files directly from the build directory
@@ -52,7 +28,6 @@ async function prerender() {
       const urlObj = new URL(url);
       let relPath = urlObj.pathname;
       
-      // Default to index.html for routes
       if (relPath === "/" || relPath === "") {
         relPath = "/index.html";
       } else if (!relPath.includes(".")) {
@@ -80,7 +55,6 @@ async function prerender() {
         return;
       }
       
-      // If file not found locally but it's a route, serve index.html
       if (!relPath.includes(".")) {
         const indexContent = fs.readFileSync(path.join(BUILD_DIR, "index.html"));
         request.respond({
@@ -114,15 +88,11 @@ async function prerender() {
     } catch (e) {
       console.error(`[prerender] Error processing ${route}:`, e.message);
       failedCount++;
-      
-      // If we hit too many failures, something is wrong with the browser
       if (failedCount > 10 && i < 20) {
           console.error("[prerender] Too many early failures. Aborting.");
           break;
       }
     }
-    
-    // Optional: Small pause
     await new Promise(r => setTimeout(r, 50));
   }
 
