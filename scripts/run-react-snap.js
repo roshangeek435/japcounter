@@ -13,17 +13,52 @@ const isCI =
   process.env.SKIP_REACT_SNAP === "true" || process.env.SKIP_REACT_SNAP === "1";
 
 if (isCI) {
-  console.log(
-    `[postbuild] Skipping react-snap (CI/Cloudflare): no Chromium deps available.`,
-  );
+  console.log(`[postbuild] Skipping react-snap: SKIP_REACT_SNAP is set.`);
   process.exit(0);
 }
 
 const cli = path.join(root, "node_modules", "react-snap", "run.js");
+
+if (!require("fs").existsSync(cli)) {
+  console.error(`[postbuild] Error: react-snap not found at ${cli}`);
+  process.exit(1);
+}
+
+// On Cloudflare Pages V3 (Ubuntu 24.04), Chromium is available in the system.
+// We point Puppeteer to it if it's not already set.
+if (!process.env.PUPPETEER_EXECUTABLE_PATH && process.env.CF_PAGES) {
+  const commonPaths = [
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium-browser",
+    "/usr/bin/chromium",
+  ];
+  for (const p of commonPaths) {
+    if (require("fs").existsSync(p)) {
+      console.log(`[postbuild] Found system browser at ${p}.`);
+      process.env.PUPPETEER_EXECUTABLE_PATH = p;
+      break;
+    }
+  }
+}
+
+console.log(`[postbuild] Starting react-snap...`);
+
 const result = spawnSync(process.execPath, [cli], {
   stdio: "inherit",
   cwd: root,
-  env: process.env,
+  env: {
+    ...process.env,
+    REACT_SNAP_CONCURRENCY: "1",
+  },
 });
+
+if (result.error) {
+  console.error("[postbuild] Failed to start react-snap process:", result.error);
+  process.exit(1);
+}
+
+if (result.status !== 0) {
+  console.error(`[postbuild] react-snap exited with code ${result.status}`);
+}
 
 process.exit(result.status === null ? 1 : result.status);

@@ -249,7 +249,8 @@
     ],
     "skipThirdPartyRequests": true,
     "inlineCss": false,
-    "crawl": false
+    "crawl": false,
+    "concurrency": 1
   },
   "browserslist": {
     "production": [
