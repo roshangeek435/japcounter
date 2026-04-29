@@ -45,7 +45,7 @@
       "source_file": "chromium/linux-1622273/chrome-linux/resources/accessibility/reading_mode_gdocs_helper/gdocs_script.js",
       "source_location": "L1",
       "id": "chromium_linux_1622273_chrome_linux_resources_accessibility_reading_mode_gdocs_helper_gdocs_script_js",
-      "community": 15,
+      "community": 16,
       "norm_label": "gdocs_script.js"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "chromium/linux-1622273/chrome-linux/resources/accessibility/reading_mode_gdocs_helper/gdocs_script.js",
       "source_location": "L5",
       "id": "reading_mode_gdocs_helper_gdocs_script_triggerdocscanvasannotationmode",
-      "community": 15,
+      "community": 16,
       "norm_label": "triggerdocscanvasannotationmode()"
     },
     {
@@ -909,16 +909,25 @@
       "source_file": "scripts/prerender.js",
       "source_location": "L1",
       "id": "scripts_prerender_js",
-      "community": 16,
+      "community": 13,
       "norm_label": "prerender.js"
+    },
+    {
+      "label": "findSystemChrome()",
+      "file_type": "code",
+      "source_file": "scripts/prerender.js",
+      "source_location": "L9",
+      "id": "scripts_prerender_findsystemchrome",
+      "community": 13,
+      "norm_label": "findsystemchrome()"
     },
     {
       "label": "prerender()",
       "file_type": "code",
       "source_file": "scripts/prerender.js",
-      "source_location": "L8",
+      "source_location": "L30",
       "id": "scripts_prerender_prerender",
-      "community": 16,
+      "community": 13,
       "norm_label": "prerender()"
     },
     {
@@ -1044,7 +1053,7 @@
       "source_file": "src/components/JapaCounter.jsx",
       "source_location": "L1",
       "id": "src_components_japacounter_jsx",
-      "community": 13,
+      "community": 14,
       "norm_label": "japacounter.jsx"
     },
     {
@@ -1053,7 +1062,7 @@
       "source_file": "src/components/JapaCounter.jsx",
       "source_location": "L28",
       "id": "components_japacounter_fmttime",
-      "community": 13,
+      "community": 14,
       "norm_label": "fmttime()"
     },
     {
@@ -1062,7 +1071,7 @@
       "source_file": "src/components/JapaCounter.jsx",
       "source_location": "L40",
       "id": "components_japacounter_japacounter",
-      "community": 13,
+      "community": 14,
       "norm_label": "japacounter()"
     },
     {
@@ -1557,7 +1566,7 @@
       "source_file": "src/components/ui/form.jsx",
       "source_location": "L1",
       "id": "src_components_ui_form_jsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "form.jsx"
     },
     {
@@ -1566,7 +1575,7 @@
       "source_file": "src/components/ui/form.jsx",
       "source_location": "L12",
       "id": "ui_form_formfield",
-      "community": 14,
+      "community": 15,
       "norm_label": "formfield()"
     },
     {
@@ -1575,7 +1584,7 @@
       "source_file": "src/components/ui/form.jsx",
       "source_location": "L24",
       "id": "ui_form_useformfield",
-      "community": 14,
+      "community": 15,
       "norm_label": "useformfield()"
     },
     {
@@ -5129,11 +5138,35 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender.js",
-      "source_location": "L8",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "scripts_prerender_js",
+      "_tgt": "scripts_prerender_findsystemchrome",
+      "source": "scripts_prerender_js",
+      "target": "scripts_prerender_findsystemchrome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender.js",
+      "source_location": "L30",
       "weight": 1.0,
       "_src": "scripts_prerender_js",
       "_tgt": "scripts_prerender_prerender",
       "source": "scripts_prerender_js",
+      "target": "scripts_prerender_prerender",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_src": "scripts_prerender_prerender",
+      "_tgt": "scripts_prerender_findsystemchrome",
+      "source": "scripts_prerender_findsystemchrome",
       "target": "scripts_prerender_prerender",
       "confidence_score": 1.0
     },

@@ -1,11 +1,11 @@
 # Graph Report - japcounter  (2026-04-29)
 
 ## Corpus Check
-- 78 files · ~191,715 words
+- 78 files · ~191,883 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 276 nodes · 390 edges · 14 communities detected
+- 277 nodes · 392 edges · 15 communities detected
 - Extraction: 85% EXTRACTED · 15% INFERRED · 0% AMBIGUOUS · INFERRED: 59 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -23,6 +23,7 @@
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 11|Community 11]]
 - [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
 - [[_COMMUNITY_Community 21|Community 21]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -101,6 +102,10 @@ Nodes (1): MenubarShortcut()
 
 ### Community 13 - "Community 13"
 Cohesion: 1.0
+Nodes (2): findSystemChrome(), prerender()
+
+### Community 14 - "Community 14"
+Cohesion: 1.0
 Nodes (2): fmtTime(), JapaCounter()
 
 ### Community 21 - "Community 21"
@@ -116,7 +121,9 @@ Nodes (2): Graphify Knowledge Graph Configuration, Graphify Knowledge Graph Tool
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 11`** (7 nodes): `menubar.jsx`, `MenubarGroup()`, `MenubarMenu()`, `MenubarPortal()`, `MenubarRadioGroup()`, `MenubarShortcut()`, `MenubarSub()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 13`** (3 nodes): `fmtTime()`, `JapaCounter()`, `JapaCounter.jsx`
+- **Thin community `Community 13`** (3 nodes): `findSystemChrome()`, `prerender.js`, `prerender()`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 14`** (3 nodes): `fmtTime()`, `JapaCounter()`, `JapaCounter.jsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 21`** (2 nodes): `Graphify Knowledge Graph Configuration`, `Graphify Knowledge Graph Tool`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
