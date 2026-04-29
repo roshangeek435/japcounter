@@ -26,11 +26,12 @@ if (!require("fs").existsSync(cli)) {
 
 // On Cloudflare Pages V3 (Ubuntu 24.04), Chromium is available in the system.
 // We point Puppeteer to it if it's not already set.
-if (!process.env.PUPPETEER_EXECUTABLE_PATH && process.env.CF_PAGES) {
+if (!process.env.PUPPETEER_EXECUTABLE_PATH) {
   const commonPaths = [
     "/usr/bin/google-chrome",
     "/usr/bin/chromium-browser",
     "/usr/bin/chromium",
+    "/usr/bin/google-chrome-stable",
   ];
   for (const p of commonPaths) {
     if (require("fs").existsSync(p)) {
@@ -41,7 +42,27 @@ if (!process.env.PUPPETEER_EXECUTABLE_PATH && process.env.CF_PAGES) {
   }
 }
 
+// If still not found, try to use npx to install it (might work in some environments)
+if (!process.env.PUPPETEER_EXECUTABLE_PATH && process.env.CF_PAGES) {
+  console.log(`[postbuild] No system browser found. Attempting to install chrome via npx...`);
+  try {
+    const installOut = spawnSync("npx", ["@puppeteer/browsers", "install", "chrome@stable"], {
+      stdio: "inherit",
+      cwd: root,
+    });
+    if (installOut.status === 0) {
+      console.log(`[postbuild] Browser installation successful. (Path discovery might be needed)`);
+      // Puppeteer might find it automatically now in its cache.
+    }
+  } catch (e) {
+    console.error(`[postbuild] Browser installation failed:`, e);
+  }
+}
+
 console.log(`[postbuild] Starting react-snap...`);
+if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+  console.log(`[postbuild] Using PUPPETEER_EXECUTABLE_PATH: ${process.env.PUPPETEER_EXECUTABLE_PATH}`);
+}
 
 const result = spawnSync(process.execPath, [cli], {
   stdio: "inherit",

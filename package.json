@@ -38,7 +38,6 @@
     "cra-template": "1.2.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
-    "express": "^5.2.1",
     "framer-motion": "^12.38.0",
     "html2canvas": "^1.4.1",
     "input-otp": "^1.4.2",
@@ -64,7 +63,7 @@
     "start": "craco start",
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "craco build",
-    "postbuild": "node scripts/run-react-snap.js",
+    "postbuild": "node scripts/prerender.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "sync-public-seo": "node scripts/generate-sitemap.js",
     "test": "craco test"
@@ -277,8 +276,10 @@
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.4",
     "eslint-plugin-react-hooks": "5.2.0",
+    "express": "^5.2.1",
     "globals": "15.15.0",
     "postcss": "^8.4.49",
+    "puppeteer-core": "^24.42.0",
     "react-snap": "^1.23.0",
     "tailwindcss": "^3.4.17"
   },
