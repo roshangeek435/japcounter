@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import html2canvas from 'html2canvas';
 import { Play, Pause, RotateCcw, Trash2, CheckCircle2 } from 'lucide-react';
@@ -94,8 +96,8 @@ export const JapaCounter = ({
         setMalaHistory(s.malaHistory || []);
         setMalaStartSec(s.malaStartSec || 0);
       }
-    } catch (e) { /* ignore */ }
-    restored.current = true;
+    } catch { /* ignore */ }
+    setTimeout(() => { restored.current = true; }, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storageKey]);
 
@@ -183,7 +185,7 @@ export const JapaCounter = ({
       link.href = canvas.toDataURL('image/png');
       link.click();
       toast.success('Downloaded! Share your divine handwriting 🙏');
-    } catch (e) {
+    } catch {
       toast.error('Download failed. Try again.');
     }
   };
@@ -207,7 +209,7 @@ export const JapaCounter = ({
           <div className="bg-white rounded-2xl border border-[#D4AF37]/30 p-5 shadow-sm" data-testid="mantra-selector-card">
             <div className="flex flex-col sm:flex-row sm:items-end gap-4">
               <div className="flex-1">
-                <label className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] mb-2 block">Choose Mantra</label>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] mb-2 block">Choose Mantra</p>
                 <Select value={mantraId} onValueChange={setMantraId} disabled={lockMantra}>
                   <SelectTrigger className="border-[#D4AF37]/40 bg-[#FFF8EE]" data-testid="mantra-select-trigger">
                     <SelectValue />
@@ -225,7 +227,7 @@ export const JapaCounter = ({
               </div>
               {mantraId !== 'custom' && (
                 <div>
-                  <label className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] mb-2 block">Script</label>
+                  <p className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] mb-2 block">Script</p>
                   <ToggleGroup type="single" value={scriptType} onValueChange={(v) => v && setScriptType(v)} className="bg-[#FFF8EE] border border-[#D4AF37]/30 rounded-full p-1" data-testid="script-toggle-group">
                     {SCRIPT_OPTIONS.map(s => (
                       <ToggleGroupItem key={s.id} value={s.id} className="text-xs px-3 data-[state=on]:bg-[#FF6B00] data-[state=on]:text-white rounded-full" data-testid={`script-toggle-${s.id}`}>

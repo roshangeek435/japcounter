@@ -17,7 +17,9 @@ const unlockAudioContext = () => {
     src.start(0);
     if (ctx.state === 'suspended') ctx.resume();
     _ctxUnlocked = true;
-  } catch (_) { /* noop */ }
+  } catch {
+    /* noop */
+  }
 };
 
 // Attach a one‑time gesture listener to unlock audio on iOS.
@@ -100,7 +102,7 @@ export const useAudio = ({ src, loop = true, initialVolume = 0.6 } = {}) => {
     setCurrentSrc(newSrc);
     if (autoplay) {
       const p = el.play();
-      if (p && p.catch) p.catch((e) => { setError('Tap Play to start audio'); });
+      if (p && p.catch) p.catch((_error) => { setError('Tap Play to start audio'); });
     }
   }, []);
 
@@ -147,7 +149,9 @@ export const playOneShot = (src, volume = 0.5) => {
     const a = new Audio(src);
     a.volume = volume;
     a.play().catch(() => {});
-  } catch (_) {}
+  } catch {
+    /* noop */
+  }
 };
 
 export default useAudio;

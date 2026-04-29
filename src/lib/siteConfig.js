@@ -1,57 +1,85 @@
-function normalizeOrigin(url) {
-  if (!url || typeof url !== 'string') return '';
-  return url.trim().replace(/\/$/, '');
+export function normalizeOrigin(url) {
+	if (!url || typeof url !== "string") {
+		return "";
+	}
+	return url.trim().replace(/\/$/, "");
+}
+
+export function getConfiguredSiteOrigin() {
+	return normalizeOrigin(process.env.NEXT_PUBLIC_SITE_URL || process.env.REACT_APP_SITE_URL || "");
 }
 
 /**
  * Public site origin (no trailing slash).
- * Set `REACT_APP_SITE_URL=https://your-domain.com` in `.env` for production builds and for `react-snap`.
- * In the browser, falls back to `window.location.origin` when unset (local dev).
+ * Prefer env configuration for SSR/metadata. In the browser, fall back to
+ * `window.location.origin` for local development and share URLs.
  */
 export function getSiteOrigin() {
-  const env = normalizeOrigin(process.env.REACT_APP_SITE_URL || '');
-  if (env) return env;
-  if (typeof window !== 'undefined' && window.location?.origin) {
-    return normalizeOrigin(window.location.origin);
-  }
-  return '';
+	const envOrigin = getConfiguredSiteOrigin();
+	if (envOrigin) {
+		return envOrigin;
+	}
+	if (typeof window !== "undefined" && window.location?.origin) {
+		return normalizeOrigin(window.location.origin);
+	}
+	return "";
 }
 
 /** Hostname for UI copy (footer, canvas tagline, share text). */
 export function siteHostname() {
-  const o = getSiteOrigin();
-  try {
-    const host = new URL(o).hostname;
-    const h = host.replace(/^www\./i, '');
-    return h || 'this site';
-  } catch {
-    return 'this site';
-  }
+	const origin = getConfiguredSiteOrigin();
+	try {
+		const host = new URL(origin).hostname.replace(/^www\./i, "");
+		return host || "japachantingcounter.com";
+	} catch {
+		return "japachantingcounter.com";
+	}
 }
 
-export function siteUrl(pathname = '/') {
-  const origin = getSiteOrigin();
-  const path = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  if (!origin) {
-    return path === '/' ? '/' : path;
-  }
-  if (path === '/') return `${origin}/`;
-  return `${origin}${path}`;
+export function siteUrl(pathname = "/") {
+	const origin = getSiteOrigin();
+	const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+	if (!origin) {
+		return path === "/" ? "/" : path;
+	}
+	return path === "/" ? `${origin}/` : `${origin}${path}`;
 }
 
-/** Contact page email; override with REACT_APP_CONTACT_EMAIL if the default hello@ host is wrong. */
+export function configuredSiteUrl(pathname = "/") {
+	const origin = getConfiguredSiteOrigin();
+	const path = pathname.startsWith("/") ? pathname : `/${pathname}`;
+	if (!origin) {
+		return path === "/" ? "/" : path;
+	}
+	return path === "/" ? `${origin}/` : `${origin}${path}`;
+}
+
 export function contactEmail() {
-  if (process.env.REACT_APP_CONTACT_EMAIL) {
-    return process.env.REACT_APP_CONTACT_EMAIL;
-  }
-  const o = getSiteOrigin();
-  try {
-    const host = new URL(o).hostname;
-    if (host && host !== 'localhost' && !/^127\./.test(host)) {
-      return `hello@${host}`;
-    }
-  } catch {
-    /* ignore */
-  }
-  return 'hello@example.com';
+	if (process.env.NEXT_PUBLIC_CONTACT_EMAIL) {
+		return process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+	}
+	if (process.env.REACT_APP_CONTACT_EMAIL) {
+		return process.env.REACT_APP_CONTACT_EMAIL;
+	}
+
+	const origin = getConfiguredSiteOrigin();
+	try {
+		const host = new URL(origin).hostname;
+		if (host && host !== "localhost" && !/^127\./.test(host)) {
+			return `hello@${host}`;
+		}
+	} catch {
+		/* ignore */
+	}
+
+	return "hello@example.com";
+}
+
+export function isAllowCrawl() {
+	const raw = (process.env.NEXT_PUBLIC_ALLOW_CRAWL ?? process.env.REACT_APP_ALLOW_CRAWL ?? process.env.ALLOW_CRAWL ?? "true").toString().trim().toLowerCase();
+
+	if (["false", "0", "no", "off"].includes(raw)) {
+		return false;
+	}
+	return true;
 }

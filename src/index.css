@@ -1,4 +1,4 @@
-/* Fonts: system stacks only so react-snap (skipThirdPartyRequests) and offline prerender need no Google Fonts. */
+/* Fonts: system stacks only to keep the Next.js build self-contained and SSR-friendly. */
 
 @tailwind base;
 @tailwind components;
