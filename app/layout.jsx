@@ -6,8 +6,8 @@ import { getGlobalJsonLd, getMetadataBase } from "@/lib/metadata";
 
 export const metadata = {
 	metadataBase: getMetadataBase(),
-	title: "Japa Counter — Free Digital Mala for Mantra Meditation",
-	description: "Free, beautiful digital mala. Tap to chant, watch your mantra fill a sacred parchment, download as image and share."
+	title: "Japa Counter · Free Online Chanting Counter & 108 Mala Tracker",
+	description: "A free Japa Counter and online Chanting Counter for daily mantra meditation. Track 108-bead malas with a beautiful digital mala. No signup. Just devotion."
 };
 
 export default function RootLayout({ children }) {

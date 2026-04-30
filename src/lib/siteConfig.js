@@ -6,7 +6,7 @@ export function normalizeOrigin(url) {
 }
 
 export function getConfiguredSiteOrigin() {
-	return normalizeOrigin(process.env.NEXT_PUBLIC_SITE_URL || process.env.REACT_APP_SITE_URL || "");
+	return normalizeOrigin(process.env.NEXT_PUBLIC_SITE_URL || "");
 }
 
 /**
@@ -30,9 +30,9 @@ export function siteHostname() {
 	const origin = getConfiguredSiteOrigin();
 	try {
 		const host = new URL(origin).hostname.replace(/^www\./i, "");
-		return host || "japachantingcounter.com";
+		return host || "japachantingcounter";
 	} catch {
-		return "japachantingcounter.com";
+		return "japachantingcounter";
 	}
 }
 
@@ -58,25 +58,22 @@ export function contactEmail() {
 	if (process.env.NEXT_PUBLIC_CONTACT_EMAIL) {
 		return process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 	}
-	if (process.env.REACT_APP_CONTACT_EMAIL) {
-		return process.env.REACT_APP_CONTACT_EMAIL;
-	}
 
 	const origin = getConfiguredSiteOrigin();
 	try {
 		const host = new URL(origin).hostname;
 		if (host && host !== "localhost" && !/^127\./.test(host)) {
-			return `hello@${host}`;
+			return `support@${host}`;
 		}
 	} catch {
 		/* ignore */
 	}
 
-	return "hello@example.com";
+	return "support@japachantingcounter.coms";
 }
 
 export function isAllowCrawl() {
-	const raw = (process.env.NEXT_PUBLIC_ALLOW_CRAWL ?? process.env.REACT_APP_ALLOW_CRAWL ?? process.env.ALLOW_CRAWL ?? "true").toString().trim().toLowerCase();
+	const raw = (process.env.NEXT_PUBLIC_ALLOW_CRAWL ?? "true").toString().trim().toLowerCase();
 
 	if (["false", "0", "no", "off"].includes(raw)) {
 		return false;

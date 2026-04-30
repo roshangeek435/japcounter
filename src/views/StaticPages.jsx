@@ -77,8 +77,9 @@ export const Contact = () => (
 			<p className="text-[#1A1A1A] mb-2">Write to us at:</p>
 			<a
 				href={`mailto:${contactEmail()}`}
-				className="font-serif text-2xl text-[#FF6B00] hover:text-[#7B1C1C]"
+				className="font-serif text-2xl text-[#FF6B00] hover:text-[#7B1C1C] break-words"
 				data-testid="contact-email"
+				title={contactEmail()}
 			>
 				{contactEmail()}
 			</a>

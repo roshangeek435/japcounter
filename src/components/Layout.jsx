@@ -237,7 +237,7 @@ export const Footer = () => (
 		</div>
 		<div className="border-t border-[#FFF8EE]/15">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row gap-3 justify-between text-xs text-[#FFF8EE]/70">
-				<p>
+				<p suppressHydrationWarning>
 					© {new Date().getFullYear()} {siteHostname()} · All rights reserved.
 				</p>
 				<div className="flex gap-5">
