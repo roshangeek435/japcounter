@@ -4,8 +4,8 @@ import { buildMetadata } from "@/lib/metadata";
 import { configuredSiteUrl } from "@/lib/siteConfig";
 
 export const metadata = buildMetadata({
-	title: "Japa Counter — Free Digital Mala for Mantra Meditation",
-	description: "Free, beautiful digital mala. Tap to chant, watch your mantra fill a sacred parchment, download as image and share. 20+ preloaded mantras (Om, Ram, Hare Krishna, Om Namah Shivaya, Hanuman, Gayatri & more).",
+	title: "Japa Counter · Free Online Chanting Counter & 108 Mala Tracker",
+	description: "A free Japa Counter and online Chanting Counter for daily mantra meditation. Track 108-bead malas with a beautiful digital mala. No signup. Just devotion.",
 	canonical: "/"
 });
 

@@ -3,6 +3,8 @@ import { contactEmail } from "../lib/siteConfig";
 import { Button } from "../components/ui/button";
 import { Heart, Sparkles, Lock, BookOpen } from "lucide-react";
 import { BLOG_POSTS, getBlogPostBySlug } from "../lib/blogPosts";
+import Image from "next/image";
+import AboutImage from "../assets/images/about-image.jpg";
 
 export const About = () => (
 	<section
@@ -11,8 +13,8 @@ export const About = () => (
 	>
 		<p className="text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-2">Our Story</p>
 		<h1 className="font-serif text-4xl sm:text-5xl text-[#7B1C1C] mb-6">Built with devotion. Shared for free.</h1>
-		<div className="aspect-video rounded-2xl bg-gradient-to-br from-[#FFE7BE] to-[#FFF3DD] border border-[#D4AF37]/30 mb-8 flex items-center justify-center text-[#7B1C1C]/50">
-			<span className="text-sm">[ Founder photo placeholder ]</span>
+		<div className="aspect-video rounded-2xl bg-gradient-to-br from-[#FFE7BE] to-[#FFF3DD] border border-[#D4AF37]/30 mb-8 flex items-center justify-center text-[#7B1C1C]/50 relative overflow-hidden">
+			<Image src={AboutImage} alt="About Japa Counter" fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
 		</div>
 
 		<div className="space-y-8 text-[#1A1A1A]/85 leading-relaxed">

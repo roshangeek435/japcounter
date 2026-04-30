@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
 	}
 
 	return buildMetadata({
-		title: `${post.title} — Japa Counter`,
+		title: post.title,
 		description: post.excerpt,
 		canonical: `/blog/${post.slug}`,
 		openGraphType: "article"

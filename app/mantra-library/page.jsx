@@ -5,8 +5,8 @@ import { ALL_MANTRAS } from "@/lib/mantras";
 import { configuredSiteUrl } from "@/lib/siteConfig";
 
 export const metadata = buildMetadata({
-	title: "Mantra Library — 150+ Sacred Mantras with Meanings & Benefits",
-	description: "Explore 150+ Hindu, Sikh, Jain, Buddhist mantras with original script, transliteration, meaning, pronunciation, vidhi, and benefits. Free Japa Counter for every mantra.",
+	title: "Mantra Library | 150+ Mantras for Daily Chanting",
+	description: "Browse 150+ sacred mantras for daily chanting. Find mantras for Shiva, Vishnu, Krishna, Ram, Devi, and more. Free japa counter for each mantra.",
 	canonical: "/mantra-library"
 });
 
