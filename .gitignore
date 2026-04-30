@@ -4,14 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-/venv
-
-# testing
-/coverage
 
 # production
 .next
-/build
 
 # misc
 .DS_Store
@@ -35,8 +30,8 @@ graphify-out/manifest.json
 # local token tracking, not useful to share
 graphify-out/cost.json
 
-# Puppeteer/Chromium binaries
-/chromium
-/.cache
 # OpenNext
 .open-next
+
+#opencode
+.opencode
